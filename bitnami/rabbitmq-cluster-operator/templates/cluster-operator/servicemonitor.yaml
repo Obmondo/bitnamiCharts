@@ -47,4 +47,11 @@ spec:
       {{- if .Values.clusterOperator.metrics.serviceMonitor.relabelings }}
       relabelings: {{ toYaml .Values.clusterOperator.metrics.serviceMonitor.relabelings | nindent 8 }}
       {{- end }}
+    - port: metrics
+    - interval: {{ .Values.clusterOperator.metrics.serviceMonitor.interval }}
+      params:
+        family: {{- range $family := .Values.clusterOperator.metrics.serviceMonitor.params.family}}
+          - {{ $family }}
+          {{- end }}
+      path: /metrics/detailed
 {{- end }}

@@ -941,6 +941,14 @@ msgTopologyOperator:
       ## @param msgTopologyOperator.metrics.serviceMonitor.labels Extra labels for the ServiceMonitor
       ##
       labels: {}
+      ## @param clusterOperator.metrics.serviceMonitor.params.family specify family parameter to scrape metrics
+      ## E.g.
+      ## family:
+      ##   - queue_coarse_metrics
+      ##   - queue_consumer_count
+      ##
+      params:
+         family: []
 
 ## @section cert-manager parameters
 ##
